@@ -2,6 +2,7 @@ import streamlit as st
 from langchain_core.prompts import PromptTemplate
 from langchain_community.chat_models import ChatOpenAI
 from pydantic.v1 import BaseModel, Field
+from langchain_groq import ChatGroq
 import os
 import subprocess
 from dotenv import load_dotenv
@@ -11,10 +12,15 @@ load_dotenv()
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 
 # Initialize ChatOpenAI model
+# Comment if using Groq
 llm = ChatOpenAI(
     model="gpt-4o",
     temperature=0,
 )
+
+# Uncomment to use groq free inferencing
+# GROQ_API_KEY = os.environ["GROQ_API_KEY"]
+# llm= ChatGroq(temperature=0, groq_api_key=GROQ_API_KEY, model_name="llama-3.1-8b-instant")
 
 # Define the output schema for the diagram code
 class Diagram(BaseModel):

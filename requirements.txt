@@ -1,5 +1,6 @@
 streamlit
 langchain
+langchain-groq
 pydantic
 python-dotenv
 graphviz

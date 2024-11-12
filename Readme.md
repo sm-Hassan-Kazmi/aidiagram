@@ -10,6 +10,15 @@ This project is a Streamlit-based web application that generates Graphviz diagra
 ## Prerequisites
 - **OpenAI API Key**: Sign up on [OpenAI](https://openai.com/) and get your API key.
 - **Graphviz**: Ensure Graphviz is installed for generating the diagrams.
+- Worried About payment of OpenAI? 
+    **Groq API Key**: Sign up on [Groq](https://console.groq.com/keys) and get you API key
+    Uncomment following lines if using groq:
+        `
+        ```GROQ_API_KEY = os.environ["GROQ_API_KEY"]```
+        ```llm= ChatGroq(temperature=0, groq_api_key=GROQ_API_KEY, model_name="llama-3.1-8b-instant")```
+
+    and comment following:
+    ```llm = ChatOpenAI(model="gpt-4o",temperature=0)``` 
 
 ### Installation
 
@@ -52,7 +61,7 @@ This project is a Streamlit-based web application that generates Graphviz diagra
 
 1. Run the Streamlit app:
     ```bash
-    streamlit run app.py
+    streamlit run main.py
     ```
 
 2. Open the URL provided in the terminal to access the application.
