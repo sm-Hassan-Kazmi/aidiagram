@@ -10,15 +10,22 @@ This project is a Streamlit-based web application that generates Graphviz diagra
 ## Prerequisites
 - **OpenAI API Key**: Sign up on [OpenAI](https://openai.com/) and get your API key.
 - **Graphviz**: Ensure Graphviz is installed for generating the diagrams.
-- Worried About payment of OpenAI? 
-    **Groq API Key**: Sign up on [Groq](https://console.groq.com/keys) and get you API key
-    Uncomment following lines if using groq:
-        `
-        ```GROQ_API_KEY = os.environ["GROQ_API_KEY"]```
-        ```llm= ChatGroq(temperature=0, groq_api_key=GROQ_API_KEY, model_name="llama-3.1-8b-instant")```
+  
+- **Worried About Payment to OpenAI?**  
+    You can use **Groq API Key** as an alternative. Sign up on [Groq](https://console.groq.com/keys) to get your API key.
 
-    and comment following:
-    ```llm = ChatOpenAI(model="gpt-4o",temperature=0)``` 
+    To use Groq, follow these steps:
+    
+    1. Uncomment the following lines in the code:
+       ```python
+       GROQ_API_KEY = os.environ["GROQ_API_KEY"]
+       llm = ChatGroq(temperature=0, groq_api_key=GROQ_API_KEY, model_name="llama-3.1-8b-instant")
+       ```
+    
+    2. Comment out the following line:
+       ```python
+       llm = ChatOpenAI(model="gpt-4o", temperature=0)
+       ```
 
 ### Installation
 
@@ -52,8 +59,8 @@ This project is a Streamlit-based web application that generates Graphviz diagra
         Download and install Graphviz from [graphviz.org](https://graphviz.org/download/).
 
 5. Set up environment variables:
-    - Rename `.env.example` to `.env`, and add your OpenAI API key:
-        ```env
+    - Rename `env.example` to `.env`, and add your OpenAI API key:
+        ```plaintext
         OPENAI_API_KEY=your_openai_api_key
         ```
 
@@ -68,4 +75,4 @@ This project is a Streamlit-based web application that generates Graphviz diagra
 
 3. Enter a scenario (e.g., "Create a UML use case diagram for user interaction with an ATM") and click **Generate Diagram**.
 
-4. View the Graphviz code and generated diagram in the app.
+4. View the Graphviz code and generated diagram in the app. 
